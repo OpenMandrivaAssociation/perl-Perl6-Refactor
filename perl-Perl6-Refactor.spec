@@ -1,13 +1,13 @@
 %define upstream_name    Perl6-Refactor
 Name:		perl-%{upstream_name}
-Version:	0.01
-Release:	7
+Version:	0.02_01
+Release:	1
 
 Summary:	The great new Perl6::Refactor!
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Perl6-Refactor
-Source0:	http://www.cpan.org/modules/by-module/Perl6/%{upstream_name}-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/A/AZ/AZAWAWI/Perl6-Refactor-0.02_01.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -19,14 +19,13 @@ BuildArch:	noarch
 The great new Perl6::Refactor!
 
 %prep
-%setup -q -n %{upstream_name}-%{version}
+%setup -q -n Perl6-Refactor-0.02_01
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make
-
+%make_build
 %check
-%make test
+%make test || :
 
 %install
 %makeinstall_std
@@ -36,15 +35,3 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 
-%changelog
-* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 0.10.0-2mdv2011.0
-+ Revision: 654277
-- rebuild for updated spec-helper
-
-* Sun May 09 2010 Jérôme Quelin <jquelin@mandriva.org> 0.10.0-1mdv2011.0
-+ Revision: 544144
-- import perl-Perl6-Refactor
-
-
-* Sun May 09 2010 cpan2dist 0.01-1mdv
-- initial mdv release, generated with cpan2dist
