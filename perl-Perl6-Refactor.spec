@@ -1,7 +1,8 @@
 %define upstream_name    Perl6-Refactor
+%define upstream_version 0.02_01
 Name:		perl-%{upstream_name}
 Version:	0.02_01
-Release:	1
+Release:	2
 
 Summary:	The great new Perl6::Refactor!
 License:	GPL+ or Artistic
