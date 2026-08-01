@@ -2,7 +2,7 @@
 %define upstream_version 0.02_01
 Name:		perl-%{upstream_name}
 Version:	0.02_01
-Release:	10
+Release:	11
 
 Summary:	The great new Perl6::Refactor!
 License:	GPL+ or Artistic
@@ -26,6 +26,7 @@ The great new Perl6::Refactor!
 perl Makefile.PL INSTALLDIRS=vendor
 %make_build
 %check
+make test || :
 %make test || :
 
 %install
