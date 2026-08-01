@@ -2,7 +2,7 @@
 %define upstream_version 0.02_01
 Name:perl-%{upstream_name}
 Version:0.02_01
-Release:13
+Release:14
 
 Summary:Refactors Perl 6 code
 License:GPL+ or Artistic
@@ -15,12 +15,10 @@ BuildRequires:	perl-devel
 BuildRequires:	perl(Test::More)
 BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(Moose)
-BuildRequires:	perl(YAML::XS)
-# Syntax::Highlight::Perl6 is a runtime dep; only needed if used at build/test
-# soft-check covers missing optional runtime during tests
+# META also lists YAML::XS and Syntax::Highlight::Perl6; not imported by the
+# shipped module code, and those provides may be missing/renamed. Soft %check.
 BuildArch:noarch
 Requires:	perl(Moose)
-Requires:	perl(YAML::XS)
 
 %description
 Perl 6 Refactor includes tools for renaming variables, finding variable
