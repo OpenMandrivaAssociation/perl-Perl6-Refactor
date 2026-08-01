@@ -2,9 +2,9 @@
 %define upstream_version 0.02_01
 Name:perl-%{upstream_name}
 Version:0.02_01
-Release:12
+Release:13
 
-Summary:The great new Perl6::Refactor!
+Summary:Refactors Perl 6 code
 License:GPL+ or Artistic
 Group:Development/Perl
 Url:https://metacpan.org/dist/Perl6-Refactor
@@ -14,10 +14,17 @@ BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl(Test::More)
 BuildRequires:	perl(Module::Build)
+BuildRequires:	perl(Moose)
+BuildRequires:	perl(YAML::XS)
+# Syntax::Highlight::Perl6 is a runtime dep; only needed if used at build/test
+# soft-check covers missing optional runtime during tests
 BuildArch:noarch
+Requires:	perl(Moose)
+Requires:	perl(YAML::XS)
 
 %description
-The great new Perl6::Refactor!
+Perl 6 Refactor includes tools for renaming variables, finding variable
+declarations and more.
 
 %prep
 %setup -q -n Perl6-Refactor-0.02_01
@@ -33,7 +40,7 @@ perl Build.PL --installdirs=vendor
 ./Build install --destdir=%{buildroot} --create_packlist=0
 
 %files
-%doc META.yml README Changes LICENSE
+%doc META.yml README Changes
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 %{_bindir}/*
