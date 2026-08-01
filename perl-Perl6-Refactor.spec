@@ -2,7 +2,7 @@
 %define upstream_version 0.02_01
 Name:perl-%{upstream_name}
 Version:0.02_01
-Release:14
+Release:15
 
 Summary:Refactors Perl 6 code
 License:GPL+ or Artistic
@@ -39,6 +39,7 @@ perl Build.PL --installdirs=vendor
 
 %files
 %doc META.yml README Changes
+%{_mandir}/man1/*
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 %{_bindir}/*
